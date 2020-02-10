@@ -136,7 +136,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataModels\e1629525.cs" />
+    <Compile Include="Models\DataModels\Acteur.cs" />
+    <Compile Include="Models\DataModels\Episode.cs" />
+    <Compile Include="Models\DataModels\Genre.cs" />
+    <Compile Include="Models\DataModels\GuideParental.cs" />
+    <Compile Include="Models\DataModels\Saison.cs" />
+    <Compile Include="Models\DataModels\Serie.cs" />
+    <Compile Include="Models\DataModels\Studio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
