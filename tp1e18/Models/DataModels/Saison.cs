@@ -22,6 +22,6 @@ namespace tp1e18.Models.DataModels
         public int SerieId { get; set; }
 
         [InverseProperty("Series")]
-        public Serie Serie { get; set; }
+        public Int Serie { get; set; }
     }
 }
