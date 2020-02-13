@@ -140,6 +140,7 @@
     <Compile Include="Models\DataModels\Episode.cs" />
     <Compile Include="Models\DataModels\Genre.cs" />
     <Compile Include="Models\DataModels\GuideParental.cs" />
+    <Compile Include="Models\DataModels\MediaDb.cs" />
     <Compile Include="Models\DataModels\Saison.cs" />
     <Compile Include="Models\DataModels\Serie.cs" />
     <Compile Include="Models\DataModels\Studio.cs" />
