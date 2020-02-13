@@ -14,5 +14,8 @@ namespace tp1e18.Models.DataModels
 
         [MaxLength(50), Required]
         public string Rate { get; set; }
+
+        [InverseProperty("GuideParentals")]
+        public virtual ICollection<Serie> Series { get; set; }
     }
 }

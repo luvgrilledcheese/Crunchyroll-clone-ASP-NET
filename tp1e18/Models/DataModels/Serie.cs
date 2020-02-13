@@ -36,10 +36,10 @@ namespace tp1e18.Models.DataModels
         [InverseProperty("Series")]
         public virtual ICollection<Acteur> Acteurs { get; set; }
 
-        //[ForeignKey("GuideParental")]
-        //public int GuideParentalId { get; set; }
+        [ForeignKey("GuideParentals")]
+        public int GuideParentalId { get; set; }
 
-        //[ForeignKey("Genre")]
-        //public int GenreId { get; set; }
+        [ForeignKey("Series")]
+        public GuideParental GuideParentals { get; set; }
     }
 }
