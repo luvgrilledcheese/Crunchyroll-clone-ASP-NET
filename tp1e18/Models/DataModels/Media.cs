@@ -21,6 +21,19 @@
         public virtual DbSet<Serie> Serie { get; set; }
         public virtual DbSet<Saison> Saison { get; set; }
         public virtual DbSet<Episode> Episode { get; set; }
+        public virtual DbSet<Acteur> Acteur { get; set; }
+        public virtual DbSet<Genre> Genre { get; set; }
+        public virtual DbSet<GuideParental> GuideParental { get; set; }
+
+
+
+
+
+
+
+
+
+
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

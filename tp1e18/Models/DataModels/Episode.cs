@@ -24,12 +24,12 @@ namespace tp1e18.Models.DataModels
         [Required]
         public int Duree { get; set; }
 
-        //[ForeignKey("Saison")]
-        //public int SaisonId { get; set; }
+        [ForeignKey("Saison")]
+        public int SaisonId { get; set; }
 
-        //[InverseProperty("Episodes")]
-        //public Saison Saison { get; set; }
+        [InverseProperty("Episodes")]
+        public Saison Saison { get; set; }
 
-        
+
     }
 }
