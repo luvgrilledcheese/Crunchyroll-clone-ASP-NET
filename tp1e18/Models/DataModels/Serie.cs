@@ -27,8 +27,8 @@ namespace tp1e18.Models.DataModels
         [InverseProperty("Series")]
         public Studio Studio { get; set; }
 
-        //[InverseProperty("Serie")]
-        //public virtual ICollection<Saison> Saisons { get; set; }
+        [InverseProperty("Serie")]
+        public virtual ICollection<Saison> Saisons { get; set; }
 
         [InverseProperty("Series")]
         public virtual ICollection<Genre> Genres { get; set; }

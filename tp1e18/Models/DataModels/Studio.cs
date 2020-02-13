@@ -15,7 +15,7 @@ namespace tp1e18.Models.DataModels
         [Required]
         public string NomStudio { get; set; }
 
-        //[InverseProperty("Studio")]
-        //public virtual ICollection<Serie> Series { get; set; }
+        [InverseProperty("Studio")]
+        public virtual ICollection<Serie> Series { get; set; }
     }
 }
