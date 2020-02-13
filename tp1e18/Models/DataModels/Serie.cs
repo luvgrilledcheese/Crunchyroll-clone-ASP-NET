@@ -36,6 +36,9 @@ namespace tp1e18.Models.DataModels
         [InverseProperty("Series")]
         public virtual ICollection<Acteur> Acteurs { get; set; }
 
+        [InverseProperty("Series")]
+        public virtual ICollection<Utilisateur> Utilisateurs { get; set; }
+
         [ForeignKey("GuideParentals")]
         public int GuideParentalId { get; set; }
 
