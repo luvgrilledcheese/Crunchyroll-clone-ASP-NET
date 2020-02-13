@@ -7,5 +7,6 @@ namespace tp1e18.Models.DataModels
 {
     public class MediaInitializer
     {
+
     }
 }

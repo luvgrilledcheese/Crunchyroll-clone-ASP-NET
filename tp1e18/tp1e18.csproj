@@ -137,13 +137,17 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DataModels\Acteur.cs" />
+    <Compile Include="Models\DataModels\Administrateur.cs" />
     <Compile Include="Models\DataModels\Episode.cs" />
     <Compile Include="Models\DataModels\Genre.cs" />
     <Compile Include="Models\DataModels\GuideParental.cs" />
-    <Compile Include="Models\DataModels\MediaDb.cs" />
+    <Compile Include="Models\DataModels\Media.cs" />
+    <Compile Include="Models\DataModels\MediaInitializer.cs" />
+    <Compile Include="Models\DataModels\Membre.cs" />
     <Compile Include="Models\DataModels\Saison.cs" />
     <Compile Include="Models\DataModels\Serie.cs" />
     <Compile Include="Models\DataModels\Studio.cs" />
+    <Compile Include="Models\DataModels\Utilisateur.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -159,8 +163,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Models\ViewModels\" />
+    <Folder Include="NewFolder1\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
