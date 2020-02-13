@@ -13,7 +13,7 @@ namespace tp1e18.Models.DataModels
         public int StudioId { get; set; }
 
         [Required]
-        public string Nom { get; set; }
+        public string NomStudio { get; set; }
 
         [InverseProperty("Studio")]
         public virtual ICollection<Serie> Series { get; set; }
