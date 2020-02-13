@@ -25,17 +25,6 @@
         public virtual DbSet<Genre> Genre { get; set; }
         public virtual DbSet<GuideParental> GuideParental { get; set; }
 
-
-
-
-
-
-
-
-
-
-
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
