@@ -16,5 +16,6 @@ namespace tp1e18.Models.DataModels
         [StringLength(15, MinimumLength = 4)]
         public string Username { get; set; }
 
+        public string Password { get; set; }
     }
 }
