@@ -14,7 +14,7 @@ namespace tp1e18.Models.DataModels
 
         [MaxLength(50), Required]
         public string Titre { get; set; }
-
+        
         [Required]
         public int NoEpisode { get; set; }
 
@@ -23,6 +23,9 @@ namespace tp1e18.Models.DataModels
 
         [Required]
         public int Duree { get; set; }
+
+        [NotMapped]
+        public string Cover { get => $"/Content/Images/Episodes/{this.EpisodeId}.jpg"; }
 
         [ForeignKey("Saison")]
         public int SaisonId { get; set; }

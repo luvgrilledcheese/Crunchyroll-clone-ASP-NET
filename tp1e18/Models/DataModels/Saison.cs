@@ -15,16 +15,13 @@ namespace tp1e18.Models.DataModels
         [Required]
         public int NoSaison { get; set; }
 
-        //[InverseProperty("Saison")]
-        //public virtual ICollection<Episode> Episodes { get; set; }
+        [InverseProperty("Saison")]
+        public virtual ICollection<Episode> Episodes { get; set; }
 
         [ForeignKey("Serie")]
         public int SerieId { get; set; }
 
         [InverseProperty("Saisons")]
         public Serie Serie { get; set; }
-
-        [InverseProperty("Saison")]
-        public virtual ICollection<Episode> Episodes { get; set; }
     }
 }

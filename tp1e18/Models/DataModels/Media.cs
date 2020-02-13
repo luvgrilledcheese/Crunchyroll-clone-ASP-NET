@@ -26,6 +26,7 @@
         public virtual DbSet<GuideParental> GuideParental { get; set; }
         public virtual DbSet<Utilisateur> Utilisateur { get; set; }
 
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
