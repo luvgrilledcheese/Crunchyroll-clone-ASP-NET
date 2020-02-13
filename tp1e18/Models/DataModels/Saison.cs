@@ -15,6 +15,9 @@ namespace tp1e18.Models.DataModels
         [Required]
         public int NoSaison { get; set; }
 
+        [NotMapped]
+        public string Cover { get => $"/Content/Images/SaisonId/{this.SaisonId}.jpg"; }
+
         [InverseProperty("Saison")]
         public virtual ICollection<Episode> Episodes { get; set; }
 

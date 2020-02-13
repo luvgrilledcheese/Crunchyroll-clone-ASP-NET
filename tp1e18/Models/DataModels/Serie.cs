@@ -18,6 +18,9 @@ namespace tp1e18.Models.DataModels
         [MaxLength(50), Required]
         public string Desc { get; set; }
 
+        [NotMapped]
+        public string Cover { get => $"/Content/Images/Serie/{this.SerieId}.jpg"; }
+
         [Required]
         public int NbrEpisodes { get; set; }
 
