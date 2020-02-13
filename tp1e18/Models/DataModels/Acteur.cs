@@ -20,10 +20,7 @@
         [MaxLength(50), Required]
         public string Personnage { get; set; }
 
-        [ForeignKey("Serie")]
-        public int SerieId { get; set; }
-
-        [InverseProperty("Series")]
-        public Serie Serie { get; set; }
+        [InverseProperty("Acteurs")]
+        public virtual ICollection<Serie> Series { get; set; }
     }
 }
