@@ -13,6 +13,6 @@ namespace tp1e18.Models.DataModels
             this.Configuration.LazyLoadingEnabled = true;
             // Database.SetInitializer(new MediaInitializer());
         }
-        public Dbset<Serie> Serie { get; set; }
+        public Dbset<Serie> Serieeee { get; set; }
     }
 }
