@@ -12,5 +12,6 @@ namespace tp1e18.Models.DataModels
 
         public string Username { get; set; }
 
+        public string Password { get; set; }
     }
 }

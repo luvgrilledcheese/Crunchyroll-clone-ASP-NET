@@ -30,11 +30,11 @@ namespace tp1e18.Models.DataModels
         [InverseProperty("Episodes")]
         public Saison Saison { get; set; }
 
-        //[Required, Column(TypeName = "image")]
-        //public byte[] Photo { get; set; }
+        [Required, Column(TypeName = "image")]
+        public byte[] Photo { get; set; }
 
-        //[Required, MaxLength(255)]
-        //public string PhotoPath { get; set; }
+        [Required, MaxLength(255)]
+        public string PhotoPath { get; set; }
 
     }
 }
