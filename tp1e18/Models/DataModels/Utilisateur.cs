@@ -8,7 +8,6 @@ namespace tp1e18.Models.DataModels
 {
     public class Utilisateur
     {
-        
         public int UtilisateurId { get; set; }
 
         public string Username { get; set; }
