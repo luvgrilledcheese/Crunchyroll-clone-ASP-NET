@@ -24,17 +24,7 @@
         public virtual DbSet<Acteur> Acteur { get; set; }
         public virtual DbSet<Genre> Genre { get; set; }
         public virtual DbSet<GuideParental> GuideParental { get; set; }
-
-
-
-
-
-
-
-
-
-
-
+        public virtual DbSet<Utilisateur> Utilisateur { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
