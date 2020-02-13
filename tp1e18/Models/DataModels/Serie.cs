@@ -18,6 +18,10 @@ namespace tp1e18.Models.DataModels
         [MaxLength(50), Required]
         public string Desc { get; set; }
 
+        
+        public int NbrEpisodes { get; set; }
+
+
         [ForeignKey("Studio")]
         public int StudioId { get; set; }
 
