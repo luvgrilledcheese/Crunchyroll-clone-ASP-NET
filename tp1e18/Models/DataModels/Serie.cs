@@ -21,6 +21,9 @@ namespace tp1e18.Models.DataModels
         [Required]
         public int NbrEpisodes { get; set; }
 
+        [Required]
+        public int Annee { get; set; }
+
         [ForeignKey("Studio")]
         public int StudioId { get; set; }
 
