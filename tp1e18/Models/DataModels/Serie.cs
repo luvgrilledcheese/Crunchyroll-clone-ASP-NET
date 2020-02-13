@@ -18,26 +18,25 @@ namespace tp1e18.Models.DataModels
         [MaxLength(50), Required]
         public string Desc { get; set; }
 
-        
+        [Required]
         public int NbrEpisodes { get; set; }
 
+        //[ForeignKey("Studio")]
+        //public int StudioId { get; set; }
 
-        [ForeignKey("Studio")]
-        public int StudioId { get; set; }
+        //[InverseProperty("Series")]
+        //public Studio Studio { get; set; }
 
-        [InverseProperty("Series")]
-        public Studio Studio { get; set; }
+        //[InverseProperty("Serie")]
+        //public virtual ICollection<Saison> Saisons { get; set; }
 
-        [InverseProperty("Serie")]
-        public virtual ICollection<Saison> Saisons { get; set; }
+        //[InverseProperty("Serie")]
+        //public virtual ICollection<Acteur> Acteurs { get; set; }
 
-        [InverseProperty("Serie")]
-        public virtual ICollection<Acteur> Acteurs { get; set; }
-
-        [ForeignKey("GuideParental")]
-        public int GuideParentalId { get; set; }
+        //[ForeignKey("GuideParental")]
+        //public int GuideParentalId { get; set; }
         
-        [ForeignKey("Genre")]
-        public int GenreId { get; set; }
+        //[ForeignKey("Genre")]
+        //public int GenreId { get; set; }
     }
 }
