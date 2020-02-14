@@ -13,6 +13,7 @@ namespace tp1e18.Models.DataModels
         public int GenreId { get; set; }
 
         [MaxLength(50), Required]
+        [Display(Name = "Nom", Description = "Nom du genre")]
         public string Nom { get; set; }
 
         [InverseProperty("Genres")]

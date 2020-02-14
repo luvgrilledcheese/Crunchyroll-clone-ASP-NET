@@ -19,13 +19,18 @@ namespace tp1e18.Models.DataModels
         public int NoEpisode { get; set; }
 
         [MaxLength(200), Required]
+        [DataType(DataType.MultilineText)]
         public string Desc { get; set; }
 
         [Required]
         public int Duree { get; set; }
 
         [NotMapped]
+        [Required]
         public string Cover { get => $"/Content/Images/Episodes/{this.EpisodeId}.jpg"; }
+
+        [Required, MaxLength(255)]
+        public string PhotoPath { get; set; }
 
         [ForeignKey("Saison")]
         public int SaisonId { get; set; }
@@ -33,11 +38,7 @@ namespace tp1e18.Models.DataModels
         [InverseProperty("Episodes")]
         public Saison Saison { get; set; }
 
-        [Required, Column(TypeName = "image")]
-        public byte[] Photo { get; set; }
-
-        [Required, MaxLength(255)]
-        public string PhotoPath { get; set; }
+        
 
     }
 }

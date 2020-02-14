@@ -13,18 +13,24 @@ namespace tp1e18.Models.DataModels
         public int SerieId { get; set; }
 
         [MaxLength(50), Required]
+        [Display(Name ="Nom", Description ="Nom de la Série")]
         public string Nom { get; set; }
 
         [MaxLength(50), Required]
+        [Display(Name = "Description", Description = "Description de la Série")]
+        [DataType(DataType.MultilineText)]
         public string Desc { get; set; }
 
         [NotMapped]
+        [Display(Name = "Image", Description = "Image de la Série")]
         public string Cover { get => $"/Content/Images/Serie/{this.SerieId}.jpg"; }
 
         [Required]
+        [Display(Name = "Nombre d'épisode", Description = "Nombre total d'épisode de la série")]
         public int NbrEpisodes { get; set; }
 
         [Required]
+        [Display(Name = "Année", Description = "Année de parution de la Série")]
         public int Annee { get; set; }
 
         [ForeignKey("Studio")]

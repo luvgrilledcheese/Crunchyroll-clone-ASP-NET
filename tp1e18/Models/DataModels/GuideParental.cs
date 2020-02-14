@@ -13,6 +13,7 @@ namespace tp1e18.Models.DataModels
         public int GuideParentalId { get; set; }
 
         [MaxLength(50), Required]
+        [Display(Name = "Nom du guide parental", Description = "Nom du guide parental")]
         public string Rate { get; set; }
 
         [InverseProperty("GuideParentals")]
