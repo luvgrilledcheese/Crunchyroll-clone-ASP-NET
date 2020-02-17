@@ -55,6 +55,7 @@ namespace tp1e18.Models.DataModels
         public int GuideParentalId { get; set; }
 
         [ForeignKey("Series")]
+        [Display(Name = "Guide Parental")]
         public virtual GuideParental GuideParental { get; set; }
     }
 }

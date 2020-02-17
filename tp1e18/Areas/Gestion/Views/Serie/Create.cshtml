@@ -49,14 +49,14 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.StudioId, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Studio, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("StudioId", new SelectList(new Media().Studio.ToList(), "StudioId", "NomStudio"), htmlAttributes: new { @class = "form-control" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.GuideParentalId, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.GuideParental, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("GuideParentalId", new SelectList(new Media().GuideParental.ToList(), "GuideParentalId", "Rate"), htmlAttributes: new { @class = "form-control" })
             </div>
