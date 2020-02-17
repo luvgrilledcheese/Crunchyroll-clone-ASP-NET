@@ -33,11 +33,11 @@ namespace tp1e18.Models.DataModels
         [Display(Name = "Année", Description = "Année de parution de la Série")]
         public int Annee { get; set; }
 
-        [ForeignKey("Studio")]
+      // [ForeignKey("Studio")]
         public int StudioId { get; set; }
 
         [InverseProperty("Series")]
-        public Studio Studio { get; set; }
+        public virtual Studio Studio { get; set; }
 
         [InverseProperty("Serie")]
         public virtual ICollection<Saison> Saisons { get; set; } = new HashSet<Saison>();
@@ -51,10 +51,10 @@ namespace tp1e18.Models.DataModels
         [InverseProperty("Series")]
         public virtual ICollection<Utilisateur> Utilisateurs { get; set; } = new HashSet<Utilisateur>();
 
-        [ForeignKey("GuideParentals")]
+        [ForeignKey("GuideParental")]
         public int GuideParentalId { get; set; }
 
         [ForeignKey("Series")]
-        public GuideParental GuideParentals { get; set; }
+        public virtual GuideParental GuideParental { get; set; }
     }
 }

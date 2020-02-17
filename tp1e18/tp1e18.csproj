@@ -128,6 +128,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.bootstrap.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Navbar.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -136,6 +137,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Gestion\Controllers\SerieController.cs" />
+    <Compile Include="Areas\Gestion\GestionAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -155,6 +158,10 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="App_Data\.gitkeep" />
+    <Content Include="Areas\Gestion\Views\web.config" />
+    <Content Include="Areas\Gestion\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Gestion\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Gestion\Views\Serie\Index.cshtml" />
     <None Include="packages.config" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -166,6 +173,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Areas\Gestion\Models\" />
     <Folder Include="Models\ViewModels\" />
   </ItemGroup>
   <PropertyGroup>
