@@ -20,7 +20,7 @@ namespace tp1e18.Areas.Gestion.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            return this.View()
+            return this.View(new Serie());
         }
     }
 }
