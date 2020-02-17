@@ -21,6 +21,6 @@
         public string Personnage { get; set; }
 
         [InverseProperty("Acteurs")]
-        public virtual ICollection<Serie> Series { get; set; }
+        public virtual ICollection<Serie> Series { get; set; } = new HashSet<Serie>();
     }
 }

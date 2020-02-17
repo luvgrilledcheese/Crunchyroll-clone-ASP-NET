@@ -18,6 +18,6 @@ namespace tp1e18.Models.DataModels
         public string NomStudio { get; set; }
 
         [InverseProperty("Studio")]
-        public virtual ICollection<Serie> Series { get; set; }
+        public virtual ICollection<Serie> Series { get; set; } = new HashSet<Serie>();
     }
 }

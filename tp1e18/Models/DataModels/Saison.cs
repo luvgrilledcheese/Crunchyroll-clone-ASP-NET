@@ -21,7 +21,7 @@ namespace tp1e18.Models.DataModels
         public string Cover { get => $"/Content/Images/SaisonId/{this.SaisonId}.jpg"; }
 
         [InverseProperty("Saison")]
-        public virtual ICollection<Episode> Episodes { get; set; }
+        public virtual ICollection<Episode> Episodes { get; set; } = new HashSet<Episode>();
 
         [ForeignKey("Serie")]
         public int SerieId { get; set; }

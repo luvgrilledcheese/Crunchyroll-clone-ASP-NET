@@ -17,6 +17,6 @@ namespace tp1e18.Models.DataModels
         public string Nom { get; set; }
 
         [InverseProperty("Genres")]
-        public virtual ICollection<Serie> Series { get; set; }
+        public virtual ICollection<Serie> Series { get; set; } = new HashSet<Serie>();
     }
 }

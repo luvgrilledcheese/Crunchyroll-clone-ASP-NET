@@ -31,6 +31,6 @@ namespace tp1e18.Models.DataModels
         public string Courriel { get; set; }
 
         [InverseProperty("Utilisateurs")]
-        public virtual ICollection<Serie> Series { get; set; }
+        public virtual ICollection<Serie> Series { get; set; } = new HashSet<Serie>();
     }
 }

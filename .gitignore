@@ -24,6 +24,7 @@ bld/
 packages/
 bin/
 obj/
+App_Data/*
 
 # Visual Studio 2015 cache/options directory
 .vs/

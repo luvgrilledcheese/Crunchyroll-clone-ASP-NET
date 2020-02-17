@@ -40,16 +40,16 @@ namespace tp1e18.Models.DataModels
         public Studio Studio { get; set; }
 
         [InverseProperty("Serie")]
-        public virtual ICollection<Saison> Saisons { get; set; }
+        public virtual ICollection<Saison> Saisons { get; set; } = new HashSet<Saison>();
 
         [InverseProperty("Series")]
-        public virtual ICollection<Genre> Genres { get; set; }
+        public virtual ICollection<Genre> Genres { get; set; } = new HashSet<Genre>();
 
         [InverseProperty("Series")]
-        public virtual ICollection<Acteur> Acteurs { get; set; }
+        public virtual ICollection<Acteur> Acteurs { get; set; } = new HashSet<Acteur>();
 
         [InverseProperty("Series")]
-        public virtual ICollection<Utilisateur> Utilisateurs { get; set; }
+        public virtual ICollection<Utilisateur> Utilisateurs { get; set; } = new HashSet<Utilisateur>();
 
         [ForeignKey("GuideParentals")]
         public int GuideParentalId { get; set; }
