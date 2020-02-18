@@ -40,7 +40,35 @@ namespace tp1e18.Areas.Gestion.Controllers
             return this.View(new Serie());
         }
 
+        public ActionResult Edit(int id) {
+            Serie serie = this.database.Serie.Find(id);
+            if (serie == null)
+            {
+                return this.HttpNotFound();
+            }
+            return this.View(serie);
+        }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Serie serie)
+        {
+            if (this.ModelState.IsValid)
+            {
+                //this.db.Entry(etudiant).State = EntityState.Modified;
+                var s = this.database.Serie.Find(serie.SerieId);
+                 s.Desc = serie.Nom;
+                 s.NbrEpisodes = serie.NbrEpisodes;
+                 s.Annee = serie.Annee;
+                if (serie.Cover != null && serie.Cover.LongCount() > 0)
+                {
+                }
+
+                this.database.SaveChanges();
+                return this.RedirectToAction("Index");
+            }
+            return this.View(serie);
+        }
 
 
     }
