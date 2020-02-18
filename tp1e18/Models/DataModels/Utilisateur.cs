@@ -12,6 +12,7 @@ namespace tp1e18.Models.DataModels
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UtilisateurId { get; set; }
 
+        [Index(IsUnique = true)]
         [Required]
         [StringLength(15, MinimumLength = 4)]
         [RegularExpression(@"^[A-Za-z]{1,1}[A-Za-z0-9]{3,14}$")]

@@ -12,6 +12,7 @@ namespace tp1e18.Models.DataModels
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int SerieId { get; set; }
 
+        [Index(IsUnique = true)]
         [MaxLength(50), Required]
         [Display(Name ="Nom", Description ="Nom de la Série")]
         public string Nom { get; set; }

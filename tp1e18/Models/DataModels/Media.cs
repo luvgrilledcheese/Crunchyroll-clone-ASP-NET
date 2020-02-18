@@ -32,5 +32,17 @@
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
         }
+
+        public class database : DbContext
+        {
+            protected override void OnModelCreating(DbModelBuilder modelBuilder)
+            {
+                modelBuilder.Entity<Episode>()
+                    .HasIndex(e => new { e.Titre, e.Saison }).IsUnique();
+
+                modelBuilder.Entity<Acteur>()
+                    .HasIndex(a => new { a.ActeurId, a.Personnage }).IsUnique();
+            }
+        }
     }
 }

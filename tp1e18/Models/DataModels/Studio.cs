@@ -13,6 +13,7 @@ namespace tp1e18.Models.DataModels
         public int StudioId { get; set; }
 
         [Required]
+        [Index(IsUnique = true)]
         [StringLength(50, MinimumLength = 3)]
         [Display(Name = "Nom", Description ="Nom du Studio")]
         public string NomStudio { get; set; }

@@ -17,10 +17,31 @@ namespace tp1e18.Areas.Gestion.Controllers
             return View(database.Serie);
         }
 
-        [HttpGet]
-        public ActionResult Create()
+        public ActionResult Create(){
+            return this.View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Serie Serie)
         {
+            if (this.ModelState.IsValid)
+            {
+                try
+                {
+                    this.database.Serie.Add(Serie);
+                    this.database.SaveChanges();
+                    return this.RedirectToAction("Index");
+                }
+                catch (Exception e) {
+                    this.ModelState.AddModelError("", e.Message);
+                }
+            }
             return this.View(new Serie());
         }
+
+
+
+
     }
 }

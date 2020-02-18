@@ -12,6 +12,7 @@ namespace tp1e18.Models.DataModels
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int GenreId { get; set; }
 
+        [Index(IsUnique = true)]
         [MaxLength(50), Required]
         [Display(Name = "Nom", Description = "Nom du genre")]
         public string Nom { get; set; }

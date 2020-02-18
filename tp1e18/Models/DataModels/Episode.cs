@@ -36,7 +36,7 @@ namespace tp1e18.Models.DataModels
         public int SaisonId { get; set; }
 
         [InverseProperty("Episodes")]
-        public Saison Saison { get; set; }
+        public virtual Saison Saison { get; set; }
 
         
 

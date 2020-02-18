@@ -12,6 +12,7 @@ namespace tp1e18.Models.DataModels
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int GuideParentalId { get; set; }
 
+        [Index(IsUnique = true)]
         [MaxLength(50), Required]
         [Display(Name = "Nom du guide parental", Description = "Nom du guide parental")]
         public string Rate { get; set; }
