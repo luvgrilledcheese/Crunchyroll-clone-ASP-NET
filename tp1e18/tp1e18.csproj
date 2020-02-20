@@ -182,6 +182,7 @@
     <Compile Include="Models\DataModels\Serie.cs" />
     <Compile Include="Models\DataModels\Studio.cs" />
     <Compile Include="Models\DataModels\Utilisateur.cs" />
+    <Compile Include="Models\ViewModels\Serie\CreateSerie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -209,7 +210,6 @@
     <Folder Include="Areas\Gestion\Views\Episode\" />
     <Folder Include="Areas\Gestion\Views\Genres\" />
     <Folder Include="Areas\Gestion\Views\Saison\" />
-    <Folder Include="Models\ViewModels\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
