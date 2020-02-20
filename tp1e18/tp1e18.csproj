@@ -182,6 +182,7 @@
     <Compile Include="Models\DataModels\Serie.cs" />
     <Compile Include="Models\DataModels\Studio.cs" />
     <Compile Include="Models\DataModels\Utilisateur.cs" />
+    <Compile Include="Models\ViewModels\Saison\CreateSaison.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -193,6 +194,9 @@
     <Content Include="Areas\Gestion\Views\Serie\Index.cshtml" />
     <Content Include="Areas\Gestion\Views\Serie\Create.cshtml" />
     <Content Include="Areas\Gestion\Views\Serie\Delete.cshtml" />
+    <Content Include="Areas\Gestion\Views\Saison\Index.cshtml" />
+    <Content Include="Areas\Gestion\Views\Saison\Create.cshtml" />
+    <Content Include="Areas\Gestion\Views\Saison\Delete.cshtml" />
     <None Include="packages.config" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -208,8 +212,6 @@
     <Folder Include="Areas\Gestion\Models\" />
     <Folder Include="Areas\Gestion\Views\Episode\" />
     <Folder Include="Areas\Gestion\Views\Genres\" />
-    <Folder Include="Areas\Gestion\Views\Saison\" />
-    <Folder Include="Models\ViewModels\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

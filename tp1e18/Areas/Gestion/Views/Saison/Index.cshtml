@@ -1,0 +1,44 @@
+﻿@model IEnumerable<tp1e18.Models.DataModels.Saison>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NoSaison)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cover)
+        </th>
+        <th>
+            Serie
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoSaison)
+        </td>
+        <td>
+            <img src="@item.Cover" height=100 width=75 />
+        </td>
+        <td>
+            @item.Serie.Nom
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SaisonId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SaisonId })
+        </td>
+    </tr>
+}
+
+</table>
