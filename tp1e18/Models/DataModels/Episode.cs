@@ -29,9 +29,6 @@ namespace tp1e18.Models.DataModels
         [Required]
         public string Cover { get => $"/Content/Images/Episodes/{this.EpisodeId}.jpg"; }
 
-        [Required, MaxLength(255)]
-        public string PhotoPath { get; set; }
-
         [ForeignKey("Saison")]
         public int SaisonId { get; set; }
 

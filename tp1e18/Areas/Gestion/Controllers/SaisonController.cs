@@ -69,9 +69,8 @@ namespace tp1e18.Areas.Gestion.Controllers
         }
 
         [HttpPost, ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(Saison saison)
         {
-            Saison saison = this.database.Saison.Find(id);
             this.database.Saison.Remove(saison);
             this.database.SaveChanges();
             System.IO.File.Delete(this.Server.MapPath(saison.Cover));
