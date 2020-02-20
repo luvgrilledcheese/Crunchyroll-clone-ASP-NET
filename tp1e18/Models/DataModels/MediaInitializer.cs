@@ -148,16 +148,16 @@ namespace tp1e18.Models.DataModels
 
             ////Serie 2 : Genre 1
 
-            //var genre3 = new Genre
-            //{
-            //    Nom = "Drama"
-            //};
+            var genreDrama = new Genre
+            {
+                Nom = "Drama"
+            };
             ////Serie 2 : Genre 2
 
-            //var genre4 = new Genre
-            //{
-            //    Nom = "Shounen"
-            //};
+            var genre4 = new Genre
+            {
+                Nom = "Shounen"
+            };
 
             ////Saison 1 Haikyuu
 

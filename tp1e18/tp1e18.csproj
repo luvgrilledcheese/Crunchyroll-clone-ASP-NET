@@ -164,7 +164,7 @@
     <Compile Include="App_Start\RouteConfig3.cs" />
     <Compile Include="App_Start\RouteConfig4.cs" />
     <Compile Include="Areas\Gestion\Controllers\EpisodeController.cs" />
-    <Compile Include="Areas\Gestion\Controllers\GenresController.cs" />
+    <Compile Include="Areas\Gestion\Controllers\GenreController.cs" />
     <Compile Include="Areas\Gestion\Controllers\SaisonController.cs" />
     <Compile Include="Areas\Gestion\Controllers\SerieController.cs" />
     <Compile Include="Areas\Gestion\GestionAreaRegistration.cs" />
@@ -192,11 +192,15 @@
     <Content Include="Areas\Gestion\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Gestion\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Gestion\Views\Serie\Index.cshtml" />
-    <Content Include="Areas\Gestion\Views\Serie\Create.cshtml" />
     <Content Include="Areas\Gestion\Views\Serie\Delete.cshtml" />
     <Content Include="Areas\Gestion\Views\Saison\Index.cshtml" />
     <Content Include="Areas\Gestion\Views\Saison\Create.cshtml" />
     <Content Include="Areas\Gestion\Views\Saison\Delete.cshtml" />
+    <Content Include="Areas\Gestion\Views\Genre\Index.cshtml" />
+    <Content Include="Areas\Gestion\Views\Genre\Create.cshtml" />
+    <Content Include="Areas\Gestion\Views\Serie\Create.cshtml" />
+    <Content Include="Areas\Gestion\Views\Genre\Edit.cshtml" />
+    <Content Include="Areas\Gestion\Views\Genre\Delete.cshtml" />
     <None Include="packages.config" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -211,7 +215,6 @@
   <ItemGroup>
     <Folder Include="Areas\Gestion\Models\" />
     <Folder Include="Areas\Gestion\Views\Episode\" />
-    <Folder Include="Areas\Gestion\Views\Genres\" />
     <Folder Include="Models\ViewModels\Serie\" />
   </ItemGroup>
   <PropertyGroup>

@@ -11,6 +11,7 @@ namespace tp1e18.Areas.Gestion.Controllers
     public class SaisonController : Controller
     {
         Media database = new Media();
+
         // GET: Gestion/Saison
         public ActionResult Index()
         {
@@ -46,8 +47,6 @@ namespace tp1e18.Areas.Gestion.Controllers
                         System.IO.File.Copy(this.Server.MapPath("/Content/Images/Saison/defaultcover.jpg"),
                                             this.Server.MapPath(saison.Cover));
                     }
-
-
                     return this.RedirectToAction("Index");
                 }
                 catch (Exception e)
