@@ -1,0 +1,38 @@
+﻿@model IEnumerable<tp1e18.Models.DataModels.Serie>
+@using tp1e18.Models.DataModels
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Ajouter un genre a une serie", "Create", null, htmlAttributes: new { @class = "btn btn-success" })
+</p>
+<table class="table">
+    <tr>
+        <th>Serie</th>
+        <th>Genre</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Nom
+            </td>
+            <td>
+                <table>
+                    @foreach (Genre g in item.Genres.ToList())
+                    {
+                        <tr>
+                            <td>@g.Nom</td>
+                            <td><a class="btn btn-danger" href="/SerieGenre/Delete?SerieId=@item.SerieId&GenreId=@g.GenreId">Désinscrire</a></td>
+                        </tr>
+                    }
+                </table>
+            </td>
+        </tr>
+    }
+
+</table>

@@ -58,6 +58,33 @@ namespace tp1e18.Areas.Gestion.Controllers
             return this.View(new CreateSaison());
         }
 
+        public ActionResult Edit(int id)
+        {
+            Saison saison = this.database.Saison.Find(id);
+            if (saison == null)
+            {
+                return this.HttpNotFound();
+            }
+            return this.View(saison);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Saison saison)
+        {
+            if (this.ModelState.IsValid)
+            {
+                Saison s = this.database.Saison.Find(saison.SaisonId);
+                s.SaisonId = saison.SaisonId;
+                s.NoSaison = saison.NoSaison;
+                s.Serie = saison.Serie;
+                s.SerieId = saison.SerieId;
+                this.database.SaveChanges();
+                return this.RedirectToAction("Index");
+            }
+            return this.View(saison);
+        }
+
         public ActionResult Delete(int id)
         {
             Saison saison = this.database.Saison.Find(id);
