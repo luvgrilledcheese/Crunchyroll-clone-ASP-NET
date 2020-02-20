@@ -1,20 +1,20 @@
-﻿@model tp1e18.Models.ViewModels.Saison.CreateSaison
+﻿@model tp1e18.Models.ViewModels.Saison.EditSaison
 @using tp1e18.Models.DataModels
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
     Media database = new Media();
 }
 
-<h2>Create</h2>
+<h2>Edit</h2>
 
 
-@using (Html.BeginForm("Create", "Saison", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>CreateSaison</h4>
+        <h4>EditSaison</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -35,13 +35,14 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Cover, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-sm-10">
-                <input type="file" name="Cover" />
+                @Html.TextBoxFor(model => model.Cover, htmlAttributes: new { @class = "form-control", type = "file" })
+                @Html.ValidationMessageFor(model => model.Cover, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>
@@ -50,5 +51,4 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
 

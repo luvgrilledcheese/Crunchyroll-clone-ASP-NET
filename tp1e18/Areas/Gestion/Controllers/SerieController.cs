@@ -87,7 +87,8 @@ namespace tp1e18.Areas.Gestion.Controllers
         {
             try
             {
-                this.database.Serie.Remove(serie);
+                database.Entry(serie).State = System.Data.Entity.EntityState.Deleted;
+                // OR DO database.Serie.Remove(database.Serie.Find(serie.SerieId));
                 this.database.SaveChanges();
                 //if (System.IO.File.Exists(this.Server.MapPath(serie.Cover)))
                 //{

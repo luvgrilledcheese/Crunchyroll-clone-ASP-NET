@@ -8,10 +8,10 @@ using tp1e18.Models.DataModels;
 
 namespace tp1e18.Models.ViewModels.Saison
 {
-    [CustomValidation(typeof(CreateSaison), "ValiderCreateSaison")]
-    public class CreateSaison
+    [CustomValidation(typeof(EditSaison), "ValiderCreateSaison")]
+    public class EditSaison
     {
-        public static ValidationResult ValiderCreateSaison(CreateSaison s)
+        public static ValidationResult ValiderCreateSaison(EditSaison s)
         {
             if (s.Cover != null && s.Cover.ContentType != "image/jpeg")
             {
