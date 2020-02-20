@@ -88,7 +88,10 @@ namespace tp1e18.Areas.Gestion.Controllers
         public ActionResult Delete(int id)
         {
             Genre g = this.database.Genre.Find(id);
-            if (g == null) { this.RedirectToAction("Index"); }
+            if (g == null) 
+            {
+                this.RedirectToAction("Index"); 
+            }
             return this.View(g);
         }
 
@@ -97,8 +100,8 @@ namespace tp1e18.Areas.Gestion.Controllers
         {
             try
             {
-                Genre Genre = this.database.Genre.Find(g.GenreId);
-                this.database.Genre.Remove(Genre);
+                Genre varGenre = this.database.Genre.Find(g.GenreId);
+                this.database.Genre.Remove(varGenre);
                 this.database.SaveChanges();
                 return this.RedirectToAction("Index");
             }

@@ -12,7 +12,6 @@
         @Html.AntiForgeryToken()
         @Html.HiddenFor(model => model.GenreId)
         //@Html.HiddenFor(model => model.Nom) Pourquoi n'est-il pas recquis pour delete? (Il apparait dans l'exercice D3702)
-
         <div class="form-actions">
             <input type="submit" value="Supprimer" class="btn btn-danger" />
             @Html.ActionLink("Retour à la liste", "Index", null, htmlAttributes: new { @class = "btn btn-default" })

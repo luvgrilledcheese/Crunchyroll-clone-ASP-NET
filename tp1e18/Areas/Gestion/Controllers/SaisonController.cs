@@ -89,19 +89,32 @@ namespace tp1e18.Areas.Gestion.Controllers
             Saison saison = this.database.Saison.Find(id);
             if (saison == null)
             {
-                return this.HttpNotFound();
+                this.RedirectToAction("Index");
             }
             return this.View(saison);
         }
 
         [HttpPost, ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult Delete(Saison s)
         {
-            Saison saison = this.database.Saison.Find(id);
-            this.database.Saison.Remove(saison);
-            this.database.SaveChanges();
-            System.IO.File.Delete(this.Server.MapPath(saison.Cover));
-            return this.RedirectToAction("Index");
+            try
+            {
+                Saison varSaison = this.database.Saison.Find(s.SaisonId);
+                this.database.Saison.Remove(varSaison);
+                if (System.IO.File.Exists(this.Server.MapPath(varSaison.Cover)))
+                {
+                    System.IO.File.Delete(this.Server.MapPath(varSaison.Cover));
+                }
+                this.database.SaveChanges();
+                
+                return this.RedirectToAction("Index");
+            }
+            catch (Exception e)
+            {
+                this.ModelState.AddModelError("", e.Message);
+                return this.View(s);
+            }
+
         }
     }
 }
