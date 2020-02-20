@@ -1,32 +1,20 @@
 ﻿@model tp1e18.Models.DataModels.Genre
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Êtes-vous sûr de vouloir supprimer le genre " + Model.Nom + "?";
 }
 
-<h2>Delete</h2>
+<h2>@ViewBag.Title</h2>
 
-<h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Genre</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Nom)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Nom)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+        @Html.HiddenFor(model => model.GenreId)
+        //@Html.HiddenFor(model => model.Nom) Pourquoi n'est-il pas recquis pour delete? (Il apparait dans l'exercice D3702)
+        <div class="form-actions">
+            <input type="submit" value="Supprimer" class="btn btn-danger" />
+            @Html.ActionLink("Retour à la liste", "Index", null, htmlAttributes: new { @class = "btn btn-default" })
         </div>
     }
 </div>

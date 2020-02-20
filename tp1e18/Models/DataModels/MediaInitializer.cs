@@ -152,6 +152,7 @@ namespace tp1e18.Models.DataModels
             {
                 Nom = "Drama"
             };
+            context.Genre.Add(genreDrama);
             ////Serie 2 : Genre 2
 
             var genre4 = new Genre
