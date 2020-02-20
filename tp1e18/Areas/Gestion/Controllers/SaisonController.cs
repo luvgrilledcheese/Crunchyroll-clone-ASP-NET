@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -66,6 +66,15 @@ namespace tp1e18.Areas.Gestion.Controllers
             }
             return this.View(saison);
         }
+
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(Saison saison)
+        {
+            this.database.Saison.Remove(saison);
+            this.database.SaveChanges();
+            System.IO.File.Delete(this.Server.MapPath(saison.Cover));
+            return this.RedirectToAction("Index");
 
         [HttpPost]
         [ValidateAntiForgeryToken]
