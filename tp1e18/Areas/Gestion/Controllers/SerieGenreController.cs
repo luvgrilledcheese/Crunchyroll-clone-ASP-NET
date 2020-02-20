@@ -35,7 +35,7 @@ namespace tp1e18.Areas.Gestion.Controllers
             {
                 this.ModelState.AddModelError("", "Ce genre est deja dans la serie.");
             }
-            return this.View();
+            return this.RedirectToAction(actionName: "Index", controllerName: "SerieGenre", routeValues: new { area = "Gestion" });
         }
 
         [HttpGet]
@@ -45,7 +45,7 @@ namespace tp1e18.Areas.Gestion.Controllers
             Genre g = this.database.Genre.Find(GenreId);
             s.Genres.Remove(g);
             this.database.SaveChanges();
-            return this.RedirectToAction("Index");
+            return this.RedirectToAction(actionName:"Index", controllerName:"SerieGenre", routeValues: new { area = "Gestion" });
         }
     }
 }

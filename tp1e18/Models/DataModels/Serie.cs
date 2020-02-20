@@ -24,7 +24,7 @@ namespace tp1e18.Models.DataModels
 
         [NotMapped]
         [Display(Name = "Image", Description = "Image de la Série")]
-        public string Cover { get => $"/Content/Images/Serie/{this.SerieId}.jpg"; }
+        public string CoverPath { get => $"/Content/Images/Serie/{this.SerieId}.jpg"; }
 
         [Required]
         [Display(Name = "Nombre d'épisode", Description = "Nombre total d'épisode de la série")]

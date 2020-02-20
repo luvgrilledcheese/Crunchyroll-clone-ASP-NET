@@ -36,10 +36,10 @@ namespace tp1e18.Models.ViewModels.Episode
         [Display(Name = "Image de l'episode")]
         public HttpPostedFileBase Cover { get; set; }
 
-        //[ForeignKey("Saison")]
-        //public int SaisonId { get; set; }
+        [ForeignKey("Saison")]
+        public int SaisonId { get; set; }
 
-        //[InverseProperty("Episodes")]
-        //public virtual Saison Saison { get; set; }
+        [InverseProperty("Episodes")]
+        public virtual DataModels.Saison Saison { get; set; }
     }
 }
