@@ -198,18 +198,15 @@
     <Content Include="Areas\Gestion\Views\Saison\Index.cshtml" />
     <Content Include="Areas\Gestion\Views\Saison\Create.cshtml" />
     <Content Include="Areas\Gestion\Views\Saison\Delete.cshtml" />
-
     <Content Include="Areas\Gestion\Views\Genre\Index.cshtml" />
     <Content Include="Areas\Gestion\Views\Genre\Create.cshtml" />
     <Content Include="Areas\Gestion\Views\Serie\Create.cshtml" />
     <Content Include="Areas\Gestion\Views\Genre\Edit.cshtml" />
     <Content Include="Areas\Gestion\Views\Genre\Delete.cshtml" />
-
     <Content Include="Areas\Gestion\Views\Episode\Index.cshtml" />
     <Content Include="Areas\Gestion\Views\Episode\Create.cshtml" />
     <Content Include="Areas\Gestion\Views\SerieGenre\Index.cshtml" />
     <Content Include="Areas\Gestion\Views\SerieGenre\Create.cshtml" />
-
     <None Include="packages.config" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -223,11 +220,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Gestion\Models\" />
-
-    <Folder Include="Areas\Gestion\Views\Episode\" />
-
-    <Folder Include="Areas\Gestion\Views\Genres\" />
-
     <Folder Include="Models\ViewModels\Serie\" />
   </ItemGroup>
   <PropertyGroup>

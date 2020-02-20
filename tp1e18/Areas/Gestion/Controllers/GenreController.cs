@@ -65,7 +65,7 @@ namespace tp1e18.Areas.Gestion.Controllers
                 if (this.ModelState.IsValid)
                 {
                     Genre g = this.database.Genre.Find(genre.GenreId);
-                    //Methode 1
+
                     g.Nom = genre.Nom;
                     g.GenreId = g.GenreId;
 
@@ -97,8 +97,8 @@ namespace tp1e18.Areas.Gestion.Controllers
         {
             try
             {
-                Genre genre = this.database.Genre.Find(g.GenreId);
-                this.database.Genre.Remove(genre);
+                Genre Genre = this.database.Genre.Find(g.GenreId);
+                this.database.Genre.Remove(Genre);
                 this.database.SaveChanges();
                 return this.RedirectToAction("Index");
             }
