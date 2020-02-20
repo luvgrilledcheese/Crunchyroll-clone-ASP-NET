@@ -75,6 +75,7 @@ namespace tp1e18.Areas.Gestion.Controllers
             this.database.SaveChanges();
             System.IO.File.Delete(this.Server.MapPath(saison.Cover));
             return this.RedirectToAction("Index");
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
