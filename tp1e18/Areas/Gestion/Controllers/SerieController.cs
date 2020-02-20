@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using tp1e18.Models.DataModels;
+using tp1e18.Models.ViewModels.Serie;
 
 namespace tp1e18.Areas.Gestion.Controllers
 {
@@ -19,19 +20,38 @@ namespace tp1e18.Areas.Gestion.Controllers
 
         public ActionResult Create()
         {
-            return this.View();
+            return this.View(new CreateSerie());
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Serie Serie)
+        public ActionResult Create(CreateSerie cs)
         {
             if (this.ModelState.IsValid)
             {
                 try
                 {
-                    this.database.Serie.Add(Serie);
+                    Serie s = new Serie();
+                    s.Annee = cs.Annee;
+                    s.Desc = cs.Desc;
+                    s.GuideParental = cs.GuideParental;
+                    s.GuideParentalId = cs.GuideParentalId;
+                    s.NbrEpisodes = s.NbrEpisodes;
+                    s.Nom = cs.Nom;
+                    s.Studio = cs.Studio;
+                    s.StudioId = cs.StudioId;
+                    this.database.Serie.Add(s);
                     this.database.SaveChanges();
+
+                    if (cs.Cover != null && cs.Cover.ContentLength > 0)
+                    {
+                        cs.Cover.SaveAs(this.Server.MapPath(s.CoverPath));
+                    }
+                    else
+                    {
+                        System.IO.File.Copy(this.Server.MapPath("/Content/Images/Serie/defaultcover.jpg"),
+                                            this.Server.MapPath(s.CoverPath));
+                    }
                     return this.RedirectToAction("Index");
                 }
                 catch (Exception e)

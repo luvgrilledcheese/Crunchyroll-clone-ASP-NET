@@ -31,6 +31,6 @@ namespace tp1e18.Models.ViewModels.Saison
         public int SerieId { get; set; }
 
         [InverseProperty("Saisons")]
-        public virtual Serie Serie { get; set; }
+        public virtual DataModels.Serie Serie { get; set; }
     }
 }
