@@ -7,6 +7,7 @@ using System.Web;
 
 namespace tp1e18.Models.ViewModels.Acteur
 {
+    [CustomValidation(typeof(CreateActeur), "ValiderCreateActeur")]
     public class CreateActeur
     {
         public static ValidationResult ValiderCreateActeur(CreateActeur a)

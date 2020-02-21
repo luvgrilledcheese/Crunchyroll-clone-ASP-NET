@@ -12,17 +12,62 @@ namespace tp1e18.Models.DataModels
         {
             base.Seed(context);
 
-
-            GuideParental guide1 = new GuideParental()
+            // Guides
+            GuideParental guide19 = new GuideParental()
             {
                 Rate = "5 stars WOw but 19+ "
             };
-            context.GuideParental.Add(guide1);
-            Studio studio1 = new Studio
+            context.GuideParental.Add(guide19);
+
+            GuideParental guide4 = new GuideParental()
+            {
+                Rate = "Family friendly:)"
+            };
+            context.GuideParental.Add(guide4);
+            // Fin Guides
+            
+            
+            // Studios
+            Studio studioNTV = new Studio
             {
                 NomStudio = "NTV"
             };
-            context.Studio.Add(studio1);
+            context.Studio.Add(studioNTV);
+
+            Studio studioGeeblee = new Studio
+            {
+                NomStudio = "Geeblee"
+            };
+            context.Studio.Add(studioGeeblee);
+            //Fin Studios
+
+
+            // Genres
+            var genreDrama = new Genre
+            {
+                Nom = "Drama"
+            };
+            context.Genre.Add(genreDrama);
+            
+            var genreShounen = new Genre
+            {
+                Nom = "Shounen"
+            };
+            context.Genre.Add(genreShounen);
+
+            var genreAction = new Genre
+            {
+                Nom = "Action"
+            };
+            context.Genre.Add(genreAction);
+
+            var genreAdventure = new Genre
+            {
+                Nom = "Adventure"
+            };
+            context.Genre.Add(genreAdventure);
+            // Fin Genres
+
             //// Utilisateurs
             //var utilisateur1 = new Utilisateur
             //{
@@ -57,26 +102,11 @@ namespace tp1e18.Models.DataModels
                 Desc = "A description",
                 NbrEpisodes = 64,
                 Annee = 2016,
-                GuideParental = guide1,
-                StudioId = studio1.StudioId,
+                GuideParental = guide19,
+                StudioId = studioGeeblee.StudioId,
             };
             context.Serie.Add(serieMyHeroAcademia);
 
-            ////Serie 1 : Genre 1
-
-            //var genre1 = new Genre
-            //{
-            //    Nom = "Action"
-            //};
-            //context.Genre.Add(genre1);
-
-            // //Serie 1 : Genre 2
-
-            //var genre2 = new Genre
-            //{
-            //    Nom = "Adventure"
-            //};
-            //context.Genre.Add(genre2);
 
             //// Saison 1 de My Hero Academia
 
@@ -141,24 +171,10 @@ namespace tp1e18.Models.DataModels
                 Desc = "Serie 2",
                 NbrEpisodes = 64,
                 Annee = 2014,
-                GuideParental = guide1,
-                Studio = studio1
+                GuideParental = guide4,
+                StudioId = studioNTV.StudioId,
             };
             context.Serie.Add(serieHaikyuu);
-
-            ////Serie 2 : Genre 1
-
-            var genreDrama = new Genre
-            {
-                Nom = "Drama"
-            };
-            context.Genre.Add(genreDrama);
-            ////Serie 2 : Genre 2
-
-            var genre4 = new Genre
-            {
-                Nom = "Shounen"
-            };
 
             ////Saison 1 Haikyuu
 

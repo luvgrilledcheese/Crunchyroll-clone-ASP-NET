@@ -12,12 +12,13 @@
 @using (Html.BeginForm("Edit", "Serie", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.EditSerieId)
 
     <div class="form-horizontal">
         <h4>Edit Serie</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.EditSerieId)
+
 
         <div class="form-group">
             @Html.LabelFor(model => model.Nom, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -52,14 +53,14 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.StudioId, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Studio, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("StudioId", new SelectList(new Media().Studio.ToList(), "StudioId", "NomStudio"), htmlAttributes: new { @class = "form-control" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.GuideParentalId, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.GuideParental, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("GuideParentalId", new SelectList(new Media().GuideParental.ToList(), "GuideParentalId", "Rate"), htmlAttributes: new { @class = "form-control" })
             </div>
