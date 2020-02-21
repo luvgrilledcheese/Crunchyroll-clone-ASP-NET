@@ -126,6 +126,10 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Areas\Gestion\Views\Serie\Edit.cshtml" />
+    <Content Include="Areas\Gestion\Views\Acteur\Index.cshtml" />
+    <Content Include="Areas\Gestion\Views\Acteur\Create.cshtml" />
+    <Content Include="Areas\Gestion\Views\Acteur\Delete.cshtml" />
+    <Content Include="Areas\Gestion\Views\Acteur\Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -158,6 +162,7 @@
     <Compile Include="App_Start\RouteConfig2.cs" />
     <Compile Include="App_Start\RouteConfig3.cs" />
     <Compile Include="App_Start\RouteConfig4.cs" />
+    <Compile Include="Areas\Gestion\Controllers\ActeurController.cs" />
     <Compile Include="Areas\Gestion\Controllers\EpisodeController.cs" />
     <Compile Include="Areas\Gestion\Controllers\GenreController.cs" />
     <Compile Include="Areas\Gestion\Controllers\SaisonController.cs" />
@@ -178,6 +183,8 @@
     <Compile Include="Models\DataModels\Serie.cs" />
     <Compile Include="Models\DataModels\Studio.cs" />
     <Compile Include="Models\DataModels\Utilisateur.cs" />
+    <Compile Include="Models\ViewModels\Acteur\CreateActeur.cs" />
+    <Compile Include="Models\ViewModels\Acteur\EditActeur.cs" />
     <Compile Include="Models\ViewModels\Episode\CreateEpisode.cs" />
     <Compile Include="Models\ViewModels\Saison\CreateSaison.cs" />
     <Compile Include="Models\ViewModels\Saison\EditSaisoncs.cs" />

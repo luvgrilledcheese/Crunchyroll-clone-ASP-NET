@@ -17,6 +17,10 @@
         [MaxLength(50), Required]
         public string Nom { get; set; }
 
+        [NotMapped]
+        [Required]
+        public string CoverPath { get => $"/Content/Images/Acteur/{this.ActeurId}.jpg"; }
+
         [MaxLength(50), Required]
         public string Personnage { get; set; }
 
