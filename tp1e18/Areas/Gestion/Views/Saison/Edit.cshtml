@@ -12,12 +12,12 @@
 @using (Html.BeginForm("Edit", "Saison", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-
+    @Html.HiddenFor(model => model.EditSaisonId)
     <div class="form-horizontal">
+        <h1> boomer id is @Model.EditSaisonId</h1>
         <h4>Edit Saison</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.EditSaisonId)
 
         <div class="form-group">
             @Html.LabelFor(model => model.NoSaison, htmlAttributes: new { @class = "control-label col-md-2" })

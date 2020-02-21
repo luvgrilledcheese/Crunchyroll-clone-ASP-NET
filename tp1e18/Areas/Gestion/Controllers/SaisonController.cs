@@ -56,6 +56,7 @@ namespace tp1e18.Areas.Gestion.Controllers
             return this.View(new CreateSaison());
         }
 
+        [HttpGet]
         public ActionResult Edit(int id)
         {
             Saison saison = this.database.Saison.Find(id);
@@ -64,7 +65,7 @@ namespace tp1e18.Areas.Gestion.Controllers
                 return this.HttpNotFound();
             }
             EditSaison es = new EditSaison();
-            es.EditSaisonId = id;
+            es.EditSaisonId = saison.SaisonId;
             es.NoSaison = saison.NoSaison;
             es.Serie = saison.Serie;
             es.SerieId = saison.SerieId;
@@ -107,22 +108,6 @@ namespace tp1e18.Areas.Gestion.Controllers
             return this.RedirectToAction("Index");
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(Saison saison)
-        {
-            if (this.ModelState.IsValid)
-            {
-                Saison s = this.database.Saison.Find(saison.SaisonId);
-                s.SaisonId = saison.SaisonId;
-                s.NoSaison = saison.NoSaison;
-                s.Serie = saison.Serie;
-                s.SerieId = saison.SerieId;
-                this.database.SaveChanges();
-                return this.RedirectToAction("Index");
-            }
-            return this.View(saison);
-        }
 
         public ActionResult Delete(int id)
         {

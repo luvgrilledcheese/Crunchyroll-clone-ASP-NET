@@ -21,7 +21,7 @@ namespace tp1e18.Models.ViewModels.Saison
         }
 
         public int EditSaisonId { get; set; }
-
+        
         [Required]
         [Display(Name = "Numéro de la saison", Description = "Numéro de la saison dans la série")]
         public int NoSaison { get; set; }
