@@ -36,7 +36,7 @@ namespace tp1e18.Areas.Gestion.Controllers
                     s.Desc = cs.Desc;
                     s.GuideParental = cs.GuideParental;
                     s.GuideParentalId = cs.GuideParentalId;
-                    s.NbrEpisodes = s.NbrEpisodes;
+                    s.NbrEpisodes = cs.NbrEpisodes;
                     s.Nom = cs.Nom;
                     s.Studio = cs.Studio;
                     s.StudioId = cs.StudioId;
@@ -62,35 +62,57 @@ namespace tp1e18.Areas.Gestion.Controllers
             return this.View(new CreateSerie());
         }
 
-        //public ActionResult Edit(int id)
-        //{
-        //    Serie serie = this.database.Serie.Find(id);
-        //    if (serie == null)
-        //    {
-        //        return this.HttpNotFound();
-        //    }
-        //    return this.View(serie);
-        //}
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            Serie serie = this.database.Serie.Find(id);
+            if (serie == null)
+            {
+                return this.HttpNotFound();
+            }
+            EditSerie es = new EditSerie();
+            es.EditSerieId = serie.SerieId;
+            es.Annee = serie.Annee;
+            es.Desc = serie.Desc;
+            es.GuideParental = serie.GuideParental;
+            es.GuideParentalId = serie.GuideParentalId;
+            es.NbrEpisodes = serie.NbrEpisodes;
+            es.Nom = serie.Nom;
+            es.Studio = serie.Studio;
+            es.StudioId = serie.StudioId;
+            return this.View(es);
+        }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit(Serie serie)
-        //{
-        //    if (this.ModelState.IsValid)
-        //    {
-        //        //this.db.Entry(etudiant).State = EntityState.Modified;
-        //        var s = this.database.Serie.Find(serie.SerieId);
-        //        s.Desc = serie.Nom;
-        //        s.NbrEpisodes = serie.NbrEpisodes;
-        //        s.Annee = serie.Annee;
-        //        if (serie.Cover != null && serie.Cover.LongCount() > 0)
-        //        {
-        //        }
-        //        this.database.SaveChanges();
-        //        return this.RedirectToAction("Index");
-        //    }
-        //    return this.View(serie);
-        //}
+        [HttpPost]
+        public ActionResult Edit(EditSerie es)
+        {
+            if (this.ModelState.IsValid)
+            {
+                try
+                {
+                    Serie serie = this.database.Serie.Find(es.EditSerieId);
+                    serie.Annee = es.Annee;
+                    serie.Desc = es.Desc;
+                    serie.GuideParental = es.GuideParental;
+                    serie.GuideParentalId = es.GuideParentalId;
+                    serie.NbrEpisodes = es.NbrEpisodes;
+                    serie.Nom = es.Nom;
+                    serie.Studio = es.Studio;
+                    serie.StudioId = es.StudioId;
+                    this.database.SaveChanges();
+                    if (es.Cover != null && es.Cover.ContentLength > 0)
+                    {
+                        es.Cover.SaveAs(this.Server.MapPath(serie.CoverPath));
+                    }
+                    return this.RedirectToAction("Index");
+                }
+                catch (Exception e)
+                {
+                    this.ModelState.AddModelError("", e.Message);
+                }
+            }
+            return this.View(new EditSerie());
+        }
 
         public ActionResult Delete(int id)
         {

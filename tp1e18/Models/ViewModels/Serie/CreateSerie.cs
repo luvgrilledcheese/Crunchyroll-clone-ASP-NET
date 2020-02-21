@@ -10,7 +10,7 @@ namespace tp1e18.Models.ViewModels.Serie
 {
     public class CreateSerie
     {
-        public static ValidationResult ValiderCreateSaison(CreateSerie s)
+        public static ValidationResult ValiderCreateSerie(CreateSerie s)
         {
             if (s.Cover != null && s.Cover.ContentType != "image/jpeg")
             {
@@ -18,6 +18,8 @@ namespace tp1e18.Models.ViewModels.Serie
             }
             return ValidationResult.Success;
         }
+
+        
 
         [Index(IsUnique = true)]
         [MaxLength(50), Required]
@@ -46,13 +48,6 @@ namespace tp1e18.Models.ViewModels.Serie
         [InverseProperty("Series")]
         public virtual Studio Studio { get; set; }
         
-        // A FAIRE
-        //[InverseProperty("Series")]
-        //public virtual ICollection<Acteur> Acteurs { get; set; } = new HashSet<Acteur>();
-
-        [InverseProperty("Series")]
-        public virtual ICollection<Utilisateur> Utilisateurs { get; set; } = new HashSet<Utilisateur>();
-
         [ForeignKey("GuideParental")]
         public int GuideParentalId { get; set; }
 
