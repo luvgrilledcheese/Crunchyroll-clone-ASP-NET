@@ -24,12 +24,12 @@ namespace tp1e18.Models.ViewModels.Serie
         [Display(Name = "Nom", Description = "Nom de la Série")]
         public string Nom { get; set; }
 
-        [MaxLength(50), Required]
+        [MaxLength(250), Required]
         [Display(Name = "Description", Description = "Description de la Série")]
         [DataType(DataType.MultilineText)]
         public string Desc { get; set; }
 
-        [Display(Name = "Image de la saison")]
+        [Display(Name = "Image de la serie")]
         public HttpPostedFileBase Cover { get; set; }
 
         [Required]
@@ -46,9 +46,9 @@ namespace tp1e18.Models.ViewModels.Serie
         [InverseProperty("Series")]
         public virtual Studio Studio { get; set; }
         
-
-        [InverseProperty("Series")]
-        public virtual ICollection<Acteur> Acteurs { get; set; } = new HashSet<Acteur>();
+        // A FAIRE
+        //[InverseProperty("Series")]
+        //public virtual ICollection<Acteur> Acteurs { get; set; } = new HashSet<Acteur>();
 
         [InverseProperty("Series")]
         public virtual ICollection<Utilisateur> Utilisateurs { get; set; } = new HashSet<Utilisateur>();

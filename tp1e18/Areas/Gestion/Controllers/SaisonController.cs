@@ -35,17 +35,16 @@ namespace tp1e18.Areas.Gestion.Controllers
                     saison.NoSaison = cs.NoSaison;
                     saison.Serie = cs.Serie;
                     saison.SerieId = cs.SerieId;
-
                     this.database.Saison.Add(saison);
                     this.database.SaveChanges();
                     if (cs.Cover != null && cs.Cover.ContentLength > 0)
                     {
-                        cs.Cover.SaveAs(this.Server.MapPath(saison.Cover));
+                        cs.Cover.SaveAs(this.Server.MapPath(saison.CoverPath));
                     }
                     else
                     {
                         System.IO.File.Copy(this.Server.MapPath("/Content/Images/Saison/defaultcover.jpg"),
-                                            this.Server.MapPath(saison.Cover));
+                                            this.Server.MapPath(saison.CoverPath));
                     }
                     return this.RedirectToAction("Index");
                 }
@@ -64,7 +63,38 @@ namespace tp1e18.Areas.Gestion.Controllers
             {
                 return this.HttpNotFound();
             }
-            return this.View(saison);
+            EditSaison es = new EditSaison();
+            es.EditSaisonId = id;
+            es.NoSaison = saison.NoSaison;
+            es.Serie = saison.Serie;
+            es.SerieId = saison.SerieId;
+            return this.View(es);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(EditSaison es)
+        {
+            if (this.ModelState.IsValid)
+            {
+                try
+                {
+                    Saison saison = this.database.Saison.Find(es.EditSaisonId);
+                    saison.NoSaison = es.NoSaison;
+                    saison.Serie = es.Serie;
+                    saison.SerieId = es.SerieId;
+                    this.database.SaveChanges();
+                    if (es.Cover != null && es.Cover.ContentLength > 0)
+                    {
+                        es.Cover.SaveAs(this.Server.MapPath(saison.CoverPath));
+                    }
+                    return this.RedirectToAction("Index");
+                }
+                catch (Exception e)
+                {
+                    this.ModelState.AddModelError("", e.Message);
+                }
+            }
+            return this.View(new EditSaison());
         }
 
 
@@ -73,7 +103,7 @@ namespace tp1e18.Areas.Gestion.Controllers
         {
             this.database.Saison.Remove(saison);
             this.database.SaveChanges();
-            System.IO.File.Delete(this.Server.MapPath(saison.Cover));
+            System.IO.File.Delete(this.Server.MapPath(saison.CoverPath));
             return this.RedirectToAction("Index");
         }
 
@@ -111,9 +141,9 @@ namespace tp1e18.Areas.Gestion.Controllers
             {
                 Saison varSaison = this.database.Saison.Find(s.SaisonId);
                 this.database.Saison.Remove(varSaison);
-                if (System.IO.File.Exists(this.Server.MapPath(varSaison.Cover)))
+                if (System.IO.File.Exists(this.Server.MapPath(varSaison.CoverPath)))
                 {
-                    System.IO.File.Delete(this.Server.MapPath(varSaison.Cover));
+                    System.IO.File.Delete(this.Server.MapPath(varSaison.CoverPath));
                 }
                 this.database.SaveChanges();
                 

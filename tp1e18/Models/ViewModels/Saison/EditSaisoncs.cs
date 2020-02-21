@@ -20,6 +20,8 @@ namespace tp1e18.Models.ViewModels.Saison
             return ValidationResult.Success;
         }
 
+        public int EditSaisonId { get; set; }
+
         [Required]
         [Display(Name = "Numéro de la saison", Description = "Numéro de la saison dans la série")]
         public int NoSaison { get; set; }
@@ -31,6 +33,6 @@ namespace tp1e18.Models.ViewModels.Saison
         public int SerieId { get; set; }
 
         [InverseProperty("Saisons")]
-        public virtual Serie Serie { get; set; }
+        public virtual DataModels.Serie Serie { get; set; }
     }
 }

@@ -17,7 +17,7 @@ namespace tp1e18.Models.DataModels
         [Display(Name ="Nom", Description ="Nom de la Série")]
         public string Nom { get; set; }
 
-        [MaxLength(50), Required]
+        [MaxLength(250), Required]
         [Display(Name = "Description", Description = "Description de la Série")]
         [DataType(DataType.MultilineText)]
         public string Desc { get; set; }

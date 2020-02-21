@@ -9,12 +9,12 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create", "Serie", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>CreateSerie</h4>
+        <h4>Create Serie</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -59,7 +59,14 @@
         <div class="form-group">
             @Html.LabelFor(model => model.GuideParentalId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("GuideParentailId", new SelectList(new Media().GuideParental.ToList(), "GuideParentalId", "Rate"), htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("GuideParentalId", new SelectList(new Media().GuideParental.ToList(), "GuideParentalId", "Rate"), htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cover, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-sm-10">
+                <input type="file" name="Cover" />
             </div>
         </div>
 

@@ -15,7 +15,7 @@
             @Html.DisplayNameFor(model => model.NoSaison)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Cover)
+            Image
         </th>
         <th>
             Serie
@@ -29,7 +29,7 @@
             @Html.DisplayFor(modelItem => item.NoSaison)
         </td>
         <td>
-            <img src="@item.Cover" height=100 width=75 />
+            <img src="@item.CoverPath" height=100 width=75 />
         </td>
         <td>
             @item.Serie.Nom

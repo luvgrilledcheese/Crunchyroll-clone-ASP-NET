@@ -59,7 +59,7 @@ namespace tp1e18.Areas.Gestion.Controllers
                     this.ModelState.AddModelError("", e.Message);
                 }
             }
-            return this.View(new Serie());
+            return this.View(new CreateSerie());
         }
 
         //public ActionResult Edit(int id)

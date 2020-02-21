@@ -6,7 +6,7 @@ using System.Data.Entity;
 
 namespace tp1e18.Models.DataModels
 {
-    public class MediaInitializer : CreateDatabaseIfNotExists<Media>
+    public class MediaInitializer : DropCreateDatabaseIfModelChanges<Media>
     {
         protected override void Seed(Media context)
         {

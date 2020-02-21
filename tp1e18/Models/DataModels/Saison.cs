@@ -18,7 +18,7 @@ namespace tp1e18.Models.DataModels
 
         [NotMapped]
         [Display(Name = "Image", Description = "Image de la saison")]
-        public string Cover { get => $"/Content/Images/Saison/{this.SaisonId}.jpg"; }
+        public string CoverPath { get => $"/Content/Images/Saison/{this.SaisonId}.jpg"; }
 
         [InverseProperty("Saison")]
         public virtual ICollection<Episode> Episodes { get; set; } = new HashSet<Episode>();
