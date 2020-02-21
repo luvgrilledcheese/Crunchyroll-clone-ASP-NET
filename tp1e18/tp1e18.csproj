@@ -130,6 +130,8 @@
     <Content Include="Areas\Gestion\Views\Acteur\Create.cshtml" />
     <Content Include="Areas\Gestion\Views\Acteur\Delete.cshtml" />
     <Content Include="Areas\Gestion\Views\Acteur\Edit.cshtml" />
+    <Content Include="Areas\Gestion\Views\Episode\Delete.cshtml" />
+    <Content Include="Areas\Gestion\Views\Episode\Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -186,6 +188,7 @@
     <Compile Include="Models\ViewModels\Acteur\CreateActeur.cs" />
     <Compile Include="Models\ViewModels\Acteur\EditActeur.cs" />
     <Compile Include="Models\ViewModels\Episode\CreateEpisode.cs" />
+    <Compile Include="Models\ViewModels\Episode\EditEpisode.cs" />
     <Compile Include="Models\ViewModels\Saison\CreateSaison.cs" />
     <Compile Include="Models\ViewModels\Saison\EditSaisoncs.cs" />
     <Compile Include="Models\ViewModels\Serie\CreateSerie.cs" />

@@ -10,13 +10,14 @@
 @using (Html.BeginForm(actionName: "Create", controllerName: "SerieGenre", method: FormMethod.Post))
 {
     <div class="form-group">
-        <label class="control-label col-md-2">Choisir un cours:</label>
+        <label class="control-label col-md-2">Choisir une série:</label>
         <div class="col-md-10">
             @Html.DropDownList("SerieId", new SelectList(new Media().Serie.ToList(), "SerieId", "Nom"), htmlAttributes: new { @class = "form-control" })
         </div>
     </div>
+    <br />
     <div class="form-group">
-        <label class="control-label col-md-2">Choisir un étudiant:</label>
+        <label class="control-label col-md-2">Choisir un genre:</label>
         <div class="col-md-10">
             @Html.DropDownList("GenreId", new SelectList(new Media().Genre.ToList(), "GenreId", "Nom"), htmlAttributes: new { @class = "form-control" })
         </div>
