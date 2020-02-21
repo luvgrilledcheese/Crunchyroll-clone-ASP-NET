@@ -28,7 +28,12 @@ namespace tp1e18.Models.DataModels
         [NotMapped]
         [Required]
         public string Cover { get => $"/Content/Images/Episode/{this.EpisodeId}.jpg"; }
-        //public string Cover { get => $"/Content/Images/Episode/{this.EpisodeId}.mp4"; }
+
+        //Video
+        [NotMapped]
+        [Required]
+        public string Video { get => $"/Content/Videos/{this.EpisodeId}.mp4"; }
+
         [ForeignKey("Saison")]
         public int SaisonId { get; set; }
 

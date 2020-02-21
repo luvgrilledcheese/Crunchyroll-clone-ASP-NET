@@ -50,6 +50,16 @@ namespace tp1e18.Areas.Gestion.Controllers
                                             this.Server.MapPath(episode.Cover));
                     }
 
+                    if (ce.Video != null && ce.Video.ContentLength > 0)
+                    {
+                        ce.Video.SaveAs(this.Server.MapPath(episode.Video));
+                    }
+                    else
+                    {
+                        System.IO.File.Copy(this.Server.MapPath("/Content/Videos/defaultvideo.mp4"),
+                                            this.Server.MapPath(episode.Cover));
+                    }
+
 
                     return this.RedirectToAction("Index");
                 }
@@ -121,12 +131,12 @@ namespace tp1e18.Areas.Gestion.Controllers
         }
 
         [HttpPost, ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult Delete(Episode e)
         {
-            Episode episode = this.database.Episode.Find(id);
-            this.database.Episode.Remove(episode);
+            Episode varEpisode = this.database.Episode.Find(e.EpisodeId);
+            this.database.Episode.Remove(varEpisode);
             this.database.SaveChanges();
-            System.IO.File.Delete(this.Server.MapPath(episode.Cover));
+            System.IO.File.Delete(this.Server.MapPath(varEpisode.Cover));
             return this.RedirectToAction("Index");
         }
     }
