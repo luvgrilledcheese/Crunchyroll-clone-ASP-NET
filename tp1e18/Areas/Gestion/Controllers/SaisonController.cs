@@ -98,17 +98,6 @@ namespace tp1e18.Areas.Gestion.Controllers
             return this.View(new EditSaison());
         }
 
-
-        [HttpPost, ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(Saison saison)
-        {
-            this.database.Saison.Remove(saison);
-            this.database.SaveChanges();
-            System.IO.File.Delete(this.Server.MapPath(saison.CoverPath));
-            return this.RedirectToAction("Index");
-        }
-
-
         public ActionResult Delete(int id)
         {
             Saison saison = this.database.Saison.Find(id);

@@ -11,10 +11,11 @@ namespace tp1e18.Areas.Gestion.Controllers
     public class EpisodeController : Controller
     {
         Media database = new Media();
-        // GET: Gestion/Episode
+
+        // GET: Gestion/Saison
         public ActionResult Index()
         {
-            return View();
+            return View(database.Episode);
         }
 
         public ActionResult Create()
@@ -31,26 +32,23 @@ namespace tp1e18.Areas.Gestion.Controllers
                 try
                 {
                     Episode episode = new Episode();
-                    episode.Titre = ce.Titre;
                     episode.NoEpisode = ce.NoEpisode;
+                    episode.Saison = ce.Saison;
+                    episode.SaisonId = ce.SaisonId;
+                    episode.Titre = ce.Titre;
+                    episode.Duree = ce.Duree; //i wanna kms for a 2nd time, maybe i should sleep
                     episode.Desc = ce.Desc;
-                    episode.Duree = ce.Duree;
-                    //episode.Saison = ce.Saison;
-                    //episode.SaisonId = ce.SaisonId;
-
                     this.database.Episode.Add(episode);
                     this.database.SaveChanges();
                     if (ce.Cover != null && ce.Cover.ContentLength > 0)
                     {
-                        ce.Cover.SaveAs(this.Server.MapPath(episode.Cover));
+                        ce.Cover.SaveAs(this.Server.MapPath(episode.CoverPath));
                     }
                     else
                     {
-                        System.IO.File.Copy(this.Server.MapPath("/Content/Images/Saison/defaultcover.jpg"),
-                                            this.Server.MapPath(episode.Cover));
+                        System.IO.File.Copy(this.Server.MapPath("/Content/Images/Episode/defaultcover.jpg"),
+                                            this.Server.MapPath(episode.CoverPath));
                     }
-
-
                     return this.RedirectToAction("Index");
                 }
                 catch (Exception e)
@@ -61,6 +59,7 @@ namespace tp1e18.Areas.Gestion.Controllers
             return this.View(new CreateEpisode());
         }
 
+        [HttpGet]
         public ActionResult Edit(int id)
         {
             Episode episode = this.database.Episode.Find(id);
@@ -68,46 +67,78 @@ namespace tp1e18.Areas.Gestion.Controllers
             {
                 return this.HttpNotFound();
             }
-            return this.View(episode);
+            EditEpisode ee = new EditEpisode();
+            ee.EditEpisodeId = episode.EpisodeId;
+            ee.Desc = episode.Desc;
+            ee.Duree = episode.Duree;
+            ee.NoEpisode = episode.NoEpisode;
+            ee.Saison = episode.Saison;
+            ee.SaisonId = episode.SaisonId;
+            ee.Titre = episode.Titre;
+            return this.View(ee);
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(Episode episode)
+        public ActionResult Edit(EditEpisode ee)
         {
             if (this.ModelState.IsValid)
             {
-                Episode e = this.database.Episode.Find(episode.EpisodeId);
-                e.Titre = episode.Titre;
-                e.NoEpisode = episode.NoEpisode;
-                e.Desc = episode.Desc;
-                e.Duree = episode.Duree;
-                e.Saison = episode.Saison;
-                e.SaisonId = episode.SaisonId;
-                this.database.SaveChanges();
-                return this.RedirectToAction("Index");
+                try
+                {
+                    Episode episode = this.database.Episode.Find(ee.EditEpisodeId);
+                    episode.Desc = ee.Desc;
+                    episode.Duree = ee.Duree;
+                    episode.NoEpisode = ee.NoEpisode;
+                    episode.Saison = ee.Saison;
+                    episode.SaisonId = ee.SaisonId;
+                    episode.Titre = ee.Titre;
+                    this.database.SaveChanges();
+                    if (ee.Cover != null && ee.Cover.ContentLength > 0)
+                    {
+                        ee.Cover.SaveAs(this.Server.MapPath(episode.CoverPath));
+                    }
+                    return this.RedirectToAction("Index");
+                }
+                catch (Exception e)
+                {
+                    this.ModelState.AddModelError("", e.Message);
+                }
             }
-            return this.View(episode);
+            return this.View(new EditEpisode());
         }
+
 
         public ActionResult Delete(int id)
         {
             Episode episode = this.database.Episode.Find(id);
             if (episode == null)
             {
-                return this.HttpNotFound();
+                this.RedirectToAction("Index");
             }
             return this.View(episode);
         }
 
         [HttpPost, ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult Delete(Episode e)
         {
-            Episode episode = this.database.Episode.Find(id);
-            this.database.Episode.Remove(episode);
-            this.database.SaveChanges();
-            System.IO.File.Delete(this.Server.MapPath(episode.Cover));
-            return this.RedirectToAction("Index");
+            try
+            {
+                Episode varEpisode = this.database.Episode.Find(e.EpisodeId);
+                this.database.Episode.Remove(varEpisode);
+                if (System.IO.File.Exists(this.Server.MapPath(varEpisode.CoverPath)))
+                {
+                    System.IO.File.Delete(this.Server.MapPath(varEpisode.CoverPath));
+                }
+                this.database.SaveChanges();
+
+                return this.RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                this.ModelState.AddModelError("", ex.Message);
+                return this.View(e);
+            }
+
         }
     }
 }
