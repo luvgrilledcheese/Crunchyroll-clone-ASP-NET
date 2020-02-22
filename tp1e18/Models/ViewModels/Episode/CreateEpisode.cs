@@ -16,6 +16,12 @@ namespace tp1e18.Models.ViewModels.Episode
             {
                 return new ValidationResult("L'image doit être un fichier jpg.", new[] { "" });
             }
+
+            if (e.Video != null && e.Video.ContentType != "video/mp4")
+            {
+                return new ValidationResult("Le fichier doit être un fichier mp4.", new[] { "" });
+            }
+
             return ValidationResult.Success;
         }
 
@@ -35,6 +41,10 @@ namespace tp1e18.Models.ViewModels.Episode
 
         [Display(Name = "Image de l'episode")]
         public HttpPostedFileBase Cover { get; set; }
+
+        //Video
+        [Display(Name = "Vidéo de l'episode")]
+        public HttpPostedFileBase Video { get; set; }
 
         [ForeignKey("Saison")]
         public int SaisonId { get; set; }

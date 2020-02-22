@@ -7,10 +7,10 @@ using System.Web;
 
 namespace tp1e18.Models.ViewModels.Episode
 {
-    [CustomValidation(typeof(EditEpisode), "ValiderEditEpisode")]
     public class EditEpisode
     {
-        public static ValidationResult ValiderEditEpisode(EditEpisode e)
+        [CustomValidation(typeof(EditEpisode), "ValiderCreateSaison")]
+        public static ValidationResult ValiderCreateEpisode(CreateEpisode e)
         {
             if (e.Cover != null && e.Cover.ContentType != "image/jpeg")
             {
@@ -19,14 +19,15 @@ namespace tp1e18.Models.ViewModels.Episode
             return ValidationResult.Success;
         }
 
-        public int EditEpisodeId { get; set; }
-
         [MaxLength(50), Required]
         public string Titre { get; set; }
 
         [Required]
         [Display(Name = "Numéro de l'episode", Description = "Numéro de l'episode dans la saison")]
         public int NoEpisode { get; set; }
+
+        [Required]
+        public int EditEpisodeId{ get; set; }
 
         [MaxLength(200), Required]
         [DataType(DataType.MultilineText)]
